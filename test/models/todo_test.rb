@@ -20,8 +20,8 @@ class TodoTest < ActiveSupport::TestCase
     assert_not @todo.valid?
   end
 
-  test "text should be at most 15 characters" do
-    @todo.text = "a" * 16
+  test "text should be at most 25 characters" do
+    @todo.text = "a" * 26
     assert_not @todo.valid?
   end
 end

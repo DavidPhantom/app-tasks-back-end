@@ -15,7 +15,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
 
   test "title should not be too long" do
-    @project.title = "a" * 11
+    @project.title = "a" * 16
     assert_not @project.valid?
   end
 

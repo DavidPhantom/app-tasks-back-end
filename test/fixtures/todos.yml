@@ -1,3 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+todo_1:
+  text: 'To buy products'
+  project: family
 
+todo_2:
+  text: 'To clean room'
+  project: family
+
+todo_3:
+  text: 'To go work'
+  project: work
