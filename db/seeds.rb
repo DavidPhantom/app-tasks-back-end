@@ -6,12 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Project.create!(title: 'New Project')
+
 3.times do
   title  = Faker::Lorem.words(number: 1)
   Project.create!(title: title)
 end
 
-projects = Project.all
+projects = Project.where("id != ?", 1)
 2.times do
   text = Faker::Lorem.sentence(word_count: 2)
   projects.each { |project| project.todos.create!(text: text) }

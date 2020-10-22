@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    @todos = Todo.all
-    serialize(@todos, :ok)
+    @projects = Project.all
+    serialize(@projects,:ok)
   end
 
   private

@@ -3,6 +3,9 @@ class TodosController < ApplicationController
     todo = Todo.find_by(id: params[:todo_id])
     if todo
       todo.update_attribute(:isCompleted, !todo.isCompleted)
+      serializeTodo(todo,:created)
+    else
+      render_mistakes('There is no such todo!')
     end
   end
 
@@ -12,35 +15,50 @@ class TodosController < ApplicationController
   end
 
   def create
-    if params[:title]
+    mess = 'Fix your input data!'
+    @todo = Todo.new(todo_params)
+    if @todo.project_id == 1
       @project = Project.new(project_params)
       if @project.save
-        @todo = Todo.new(params[:text])
         @todo.project_id = @project.id
         if @todo.save
-          serialize(@todo, :created)
+          serializeProj(@project, :created)
+        else
+          render_mistakes(mess)
         end
+      else
+        render_mistakes(mess)
       end
     else
-      @todo = Todo.new(todo_params)
       if @todo.save
-        serialize(@todo, :created)
+        serializeTodo(@todo, :created)
+      else
+        render_mistakes(mess)
       end
     end
   end
 
   private
 
-  def serialize(todos, status)
-    render json: ProjectSerializer.new(todos).serialized_json, status: status
+  def serializeTodo(todo, status)
+    render json: TodoSerializer.new(todo).serialized_json, status: status
   end
+
+  def serializeProj(proj, status)
+    render json: ProjectSerializer.new(proj).serialized_json, status: status
+  end
+
+  def render_mistakes(mess)
+    render json: { message: mess }, status: :not_found
+  end
+
 
   def todo_params
     params.require(:todo).permit(*allowed_parameters_todo)
   end
 
   def project_params
-    params.require(:project).permit(*allowed_parameters_project)
+    params.permit(*allowed_parameters_project)
   end
 
   def allowed_parameters_todo
