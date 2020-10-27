@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  get '/projects' => 'projects#index', defaults: { format: :json }
-  patch 'projects/:project_id/todos/:todo_id' => 'todos#checked', defaults: { format: :json }
-  post '/todos' => 'todos#create', defaults: { format: :json }
+  patch 'projects/:project_id/todos/:id' => 'todos#checked', defaults: { format: :json }
+  post 'projects/:project_id/todos' => 'todos#create', defaults: { format: :json }
+
+  resources :projects, only: %i[index create], defaults: { format: :json }
 end
