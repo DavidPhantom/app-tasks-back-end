@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
-    serialize(@projects,:ok)
+    serialize(@projects, :ok)
   end
 
   private
@@ -9,5 +11,4 @@ class ProjectsController < ApplicationController
   def serialize(projects, status)
     render json: ProjectSerializer.new(projects).serialized_json, status: status
   end
-
 end

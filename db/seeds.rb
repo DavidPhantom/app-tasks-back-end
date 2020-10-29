@@ -9,11 +9,11 @@
 Project.create!(title: 'New Project')
 
 3.times do
-  title  = Faker::Lorem.words(number: 1)
+  title = Faker::Lorem.words(number: 1)
   Project.create!(title: title)
 end
 
-projects = Project.where("id != ?", 1)
+projects = Project.where('id != ?', 1)
 2.times do
   text = Faker::Lorem.sentence(word_count: 2)
   projects.each { |project| project.todos.create!(text: text) }

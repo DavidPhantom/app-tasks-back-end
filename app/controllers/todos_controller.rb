@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class TodosController < ApplicationController
   def checked
     todo = Todo.find_by(id: params[:todo_id])
     if todo
       todo.update_attribute(:isCompleted, !todo.isCompleted)
-      serializeTodo(todo,:created)
+      serializeTodo(todo, :created)
     else
       render_mistakes('There is no such todo!')
     end
@@ -52,7 +54,6 @@ class TodosController < ApplicationController
     render json: { message: mess }, status: :not_found
   end
 
-
   def todo_params
     params.require(:todo).permit(*allowed_parameters_todo)
   end
@@ -62,15 +63,15 @@ class TodosController < ApplicationController
   end
 
   def allowed_parameters_todo
-    [
-        :project_id,
-        :text
+    %i[
+      project_id
+      text
     ]
   end
 
   def allowed_parameters_project
     [
-        :title
+      :title
     ]
   end
 end

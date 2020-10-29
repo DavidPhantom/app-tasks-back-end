@@ -10,25 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_144702) do
-
+ActiveRecord::Schema.define(version: 20_201_021_144_702) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'projects', force: :cascade do |t|
+    t.string 'title'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "todos", force: :cascade do |t|
-    t.string "text"
-    t.bigint "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "isCompleted", default: false
-    t.index ["project_id"], name: "index_todos_on_project_id"
+  create_table 'todos', force: :cascade do |t|
+    t.string 'text'
+    t.bigint 'project_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.boolean 'isCompleted', default: false
+    t.index ['project_id'], name: 'index_todos_on_project_id'
   end
 
-  add_foreign_key "todos", "projects"
+  add_foreign_key 'todos', 'projects'
 end
