@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-class TodoSerializer
-  include FastJsonapi::ObjectSerializer
+class TodoSerializer < BaseSerializer
   attributes :id, :text, :isCompleted
 end

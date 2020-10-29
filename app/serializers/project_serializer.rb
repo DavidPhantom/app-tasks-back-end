@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class ProjectSerializer
-  include FastJsonapi::ObjectSerializer
+class ProjectSerializer < BaseSerializer
+  attributes :id, :title
 
-  attributes :id, :title, :todos
+  has_many :todos
 end
