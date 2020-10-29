@@ -1,85 +1,228 @@
-require: rubocop-rspec
-
 AllCops:
   Exclude:
-    - bin/*
     - db/schema.rb
-    - 'tmp/**/*'
-    - db/*.rb
-    - node_modules/**/*
+    - tmp/**/*
+    - bin/**/*
     - vendor/**/*
-    - Gemfile
-    - config/environments/*.rb
-    - config/initializers/simple_form_bootstrap.rb
-    - config/initializers/simple_form.rb
-  TargetRubyVersion: 2.7
+    - lib/**/*
 
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
+  TargetRubyVersion: 2.5
 
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
+# Relaxed.Ruby.Style
+## Version 2.1
 
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/RedundantFetchBlock:
+Style/Alias:
   Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylealias
 
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
+Style/AsciiComments:
   Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleasciicomments
 
-Style/SlicingWithRange:
-  Enabled: true
+Style/BeginBlock:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylebeginblock
+
+Style/BlockDelimiters:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleblockdelimiters
+
+Style/CommentAnnotation:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylecommentannotation
 
 Style/Documentation:
   Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styledocumentation
 
-Layout/LineLength:
-  Max: 200
+Layout/DotPosition:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#layoutdotposition
 
-Style/HashEachMethods:
+Layout/EndOfLine:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styledoublenegation
+
+Style/EndBlock:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleendblock
+
+Style/FormatString:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleformatstring
+
+Style/IfUnlessModifier:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleifunlessmodifier
+
+Style/Lambda:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylelambda
+
+Style/ModuleFunction:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylemodulefunction
+
+Style/MultilineBlockChain:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylemultilineblockchain
+
+Style/MultipleComparison:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylemultiplecomparison
+
+Style/NegatedIf:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylenegatedif
+
+Style/NegatedWhile:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylenegatedwhile
+
+Style/NumericPredicate:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#numericpredicate
+
+Style/ParallelAssignment:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleparallelassignment
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylepercentliteraldelimiters
+
+Style/PerlBackrefs:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styleperlbackrefs
+
+Style/Semicolon:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylesemicolon
+
+Style/SignalException:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylesignalexception
+
+Style/SingleLineBlockParams:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylesinglelineblockparams
+
+Style/SingleLineMethods:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylesinglelinemethods
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#layoutspacebeforeblockbraces
+
+Layout/SpaceInsideParens:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#layoutspaceinsideparens
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylespecialglobalvars
+
+Style/StringLiterals:
   Enabled: true
+  EnforcedStyle: single_quotes
 
-Style/HashTransformKeys:
-  Enabled: true
+Style/SymbolArray:
+  Enabled: false
 
-Style/HashTransformValues:
-  Enabled: true
+Style/TrailingCommaInArguments:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styletrailingcommainarguments
 
-Metrics/MethodLength:
-  Max: 20
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styletrailingcommainarrayliteral
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#styletrailingcommainhashliteral
+
+Style/WhileUntilModifier:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylewhileuntilmodifier
+
+Style/WordArray:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#stylewordarray
+
+Style/RaiseArgs:
+  Enabled: false
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#lintambiguousregexpliteral
+
+Lint/AssignmentInCondition:
+  Enabled: false
+  StyleGuide: http://relaxed.ruby.style/#lintassignmentincondition
 
 Metrics/AbcSize:
-  Max: 25
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
 
 Metrics/BlockLength:
-  ExcludedMethods: ['namespace']
-  Exclude:
-    - app/api/doctor_profile/*.rb
-    - config/routes.rb
-    - config/environments/staging.rb
-    - config/environments/production.rb
-    - spec/**/*
-    - namespace
+  Enabled: false
 
-RSpec/NestedGroups:
-  Max: 4
+Metrics/CyclomaticComplexity:
+  Enabled: false
 
-RSpec/ExampleLength:
-  Max: 10
+Layout/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# End of Relaxed.Ruby.Style
+
+Naming/PredicateName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+    Add the frozen_string_literal comment to the top of files
+    to help transition from Ruby 2.3.0 to Ruby 3.0.
+  Enabled: false
+
+Style/LambdaCall:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/GlobalVars:
+  AllowedVariables:
+    - staging
+
+Lint/RedundantCopDisableDirective:
+  Enabled: false
