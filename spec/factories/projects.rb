@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :project do
-    title { Faker::Lorem.words(number: 1) }
+    title { Faker::Lorem.word }
   end
 end
