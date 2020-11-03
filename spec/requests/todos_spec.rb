@@ -14,10 +14,24 @@ RSpec.describe 'Todos', type: :request do
   end
 
   describe 'PATCH #checked' do
-    context 'to check the task' do
+    context 'to check the todo' do
       it do
         patch "/projects/#{project.id}/todos/#{todo.id}", as: :json
         expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'invalid project' do
+      it do
+        patch "/projects/100/todos/#{todo.id}", as: :json
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context 'invalid todo' do
+      it do
+        patch "/projects/#{project.id}/todos/100", as: :json
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -32,15 +46,22 @@ RSpec.describe 'Todos', type: :request do
 
     context 'with invalid attribute - empty text' do
       it do
-        post projects_path, params: { text: '' }, as: :json
+        post "/projects/#{project.id}/todos", params: { text: '' }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
     context 'with invalid attribute - more than maximum signs in text' do
       it do
-        post projects_path, params: { text: 'To buy products, to clean room and to go for a walk' }, as: :json
+        post "/projects/#{project.id}/todos", params: { text: 'To buy products, to clean room and to go for a walk' }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
+    context 'with invalid project' do
+      it do
+        post '/projects/100/todos', params: { text: 'To buy products' }, as: :json
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
