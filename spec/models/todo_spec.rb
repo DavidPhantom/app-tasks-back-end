@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Todo, type: :model do
-  subject! { create(:todo, project: project) }
-
   let!(:project) { create(:project) }
+
+  subject! { create(:todo, project: project) }
 
   it { expect(build(:todo)).to be_valid }
 

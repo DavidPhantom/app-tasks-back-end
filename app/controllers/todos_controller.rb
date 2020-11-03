@@ -11,7 +11,7 @@ class TodosController < ApplicationController
   end
 
   def new
-    @todo = @proejct.todos.new(todo_params)
+    @todo = @project.todos.new(todo_params)
 
     render json: params
   end
